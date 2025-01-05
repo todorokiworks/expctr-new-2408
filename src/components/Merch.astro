@@ -8,7 +8,7 @@ const merches = [
 ];
 ---
 
-<div class="merch" id="merce">
+<div class="merch" id="merch">
     <h2>Merch:</h2>
     <div class="merch_wrapper">
         <ul>
@@ -34,6 +34,12 @@ const merches = [
         margin: 0 auto;
         padding: 0 0 80px;
         color: #fff;
+        h2 {
+            margin-bottom: 20px;
+            @media (max-width: 768px) {
+                font-size: 28px;
+            }
+        }
         .merch_wrapper {
             ul {
                 display: flex;

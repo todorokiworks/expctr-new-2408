@@ -1,0 +1,115 @@
+---
+import { icon } from "@fortawesome/fontawesome-svg-core";
+import {
+    faYoutube,
+    faInstagram,
+    faTiktok,
+    faSpotify,
+    faApple,
+    faXTwitter,
+    faBandcamp,
+} from "@fortawesome/free-brands-svg-icons";
+
+const youtube = icon(faYoutube);
+const instagram = icon(faInstagram);
+const tiktok = icon(faTiktok);
+const spotify = icon(faSpotify);
+const apple = icon(faApple);
+const x = icon(faXTwitter);
+const bandcamp = icon(faBandcamp);
+
+const links = [
+    {
+        icon: youtube,
+        url: "https://www.youtube.com/c/EXPCTR",
+    },
+
+    {
+        icon: spotify,
+        url: "https://open.spotify.com/artist/3ipgUyTWKYk6KAm91kTdrk?si=1NnDDPcJQDChMcWpk-qSxA",
+    },
+    {
+        icon: apple,
+        url: "https://music.apple.com/jp/artist/expctr/1438272153",
+    },
+    {
+        icon: x,
+        url: "https://twitter.com/expctr__",
+    },
+    {
+        icon: instagram,
+        url: "http://instagram.com/expctr",
+    },
+    {
+        icon: tiktok,
+        url: "https://www.tiktok.com/@expctr",
+    },
+    {
+        icon: bandcamp,
+        url: "https://expctr.bandcamp.com/releases",
+    },
+];
+
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="expctr official website">
+    <div class="header">
+        <h1><a href="/"><img src="/img/logo.png" alt="" /></a></h1>
+    </div>
+    <div class="main">
+        <p>thanks for your inquiry.</p>
+        <a href="/" class="btn">Back To TOP</a>
+        <ul>
+            {
+                links.map((item) => (
+                    <li>
+                        <a href={item.url} target="_blank">
+                            <Fragment set:html={item.icon.html} />
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+    <!-- <Main client:only="react" />-->
+</Layout>
+
+<style lang="scss">
+    div.main {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        p {
+            color: #fff;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        a.btn {
+            color: #fff;
+            display: block;
+            padding: 10px 40px;
+            text-align: center;
+            font-size: 24px;
+            border: 1px solid #fff;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+        ul {
+            display: flex;
+            gap: 30px;
+            li {
+                a {
+                    color: #fff;
+                    font-size: 26px;
+                    transition: all 0.3s;
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+</style>

@@ -1,23 +1,7 @@
 ---
-const videos = [
-    { url: "https://www.youtube.com/embed/waDsv3p9h1E" },
-    {
-        url: "https://www.youtube.com/embed/yuFCkqAJOfA?si=UWettKtT8dBtWDZW",
-    },
-    {
-        url: "https://www.youtube.com/embed/q6qA1ny8cHw?si=YcDDw_x3gSFylEYJ",
-    },
-    {
-        url: "https://www.youtube.com/embed/-UzlWgpNVRY?si=lUiQyv2vj2-0g9e6",
-    },
-    { url: "https://www.youtube.com/embed/c6s1kMBTYQ0?si=2D3RWCP_6-A5l17S" },
-    {
-        url: "https://www.youtube.com/embed/ZyEUFDXsJNk?si=1pZ-mB0EuqzEaq_0",
-    },
-    {
-        url: "https://www.youtube.com/embed/aJddG7aVwbY?si=kKX7yRtEmuM7FD6J",
-    },
-];
+import { getMusicVideo } from "../libs/microcms";
+
+const response = await getMusicVideo({ fields: "link" });
 ---
 
 <section id="videos">
@@ -28,11 +12,11 @@ const videos = [
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 {
-                    videos.map((video) => (
+                    response.contents.map((video: any) => (
                         <div class="swiper-slide">
                             <div class="video-item">
                                 <iframe
-                                    src={video.url}
+                                    src={video.link}
                                     title="YouTube video player"
                                     frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

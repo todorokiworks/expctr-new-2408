@@ -1,0 +1,72 @@
+---
+const links = [
+    {
+        name: "LatestRelease",
+        link: "#latestRelease",
+    },
+    {
+        name: "Video",
+        link: "#videos",
+    },
+    {
+        name: "Music",
+        link: "#music",
+    },
+    {
+        name: "Live",
+        link: "#live",
+    },
+    {
+        name: "Merch",
+        link: "#merch",
+    },
+    {
+        name: "Contact",
+        link: "#contact",
+    },
+];
+---
+
+<div class="pagelink">
+    <ul>
+        {
+            links.map((link) => (
+                <li>
+                    <a href={link.link}>{link.name}</a>
+                </li>
+            ))
+        }
+    </ul>
+</div>
+
+<style lang="scss">
+    .pagelink {
+        @media (max-width: 768px) {
+            padding: 0 20px;
+            overflow-x: scroll;
+        }
+    }
+    ul {
+        display: flex;
+        justify-content: center;
+
+        padding: 20px 0;
+        @media (max-width: 768px) {
+            width: 500px;
+        }
+        li {
+            padding: 0 20px;
+            &:not(:last-child) {
+                border-right: 1px solid #fff;
+            }
+            a {
+                color: #fff;
+                font-size: 18px;
+                display: block;
+                @media (max-width: 768px) {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+</style>

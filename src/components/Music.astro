@@ -1,36 +1,9 @@
 ---
-const music = [
-    {
-        url: "https://friendship.lnk.to/SecretMoment_EXPCTR",
-        ttl: "Secret Moment",
-        img: "/img/sm-cover.png",
-    },
-    {
-        url: "https://friendship.lnk.to/Undress",
-        ttl: "Undress",
-        img: "/img/undress-cover.png",
-    },
-    {
-        url: "https://friendship.lnk.to/DISPLAY_THREE",
-        ttl: "DISPLAY THREE",
-        img: "/img/d3-cover.png",
-    },
-    {
-        url: "https://friendship.lnk.to/DISPLAY_TWO",
-        ttl: "DISPLAY TWO",
-        img: "/img/d2-cover.jpg",
-    },
-    {
-        url: "https://open.spotify.com/intl-ja/album/5sE4GGk3lYdOq8U4VIT9Os?si=3WcwSDRbQXau9cNhLbP_Zg",
-        ttl: "DISPLAY ONE",
-        img: "/img/d1-cover.png",
-    },
-    {
-        url: "https://open.spotify.com/intl-ja/album/3f4pAZZTsBehwuYrAO6G9g?si=Ff0ZTsVfQmeYpRvw_wKVlg",
-        ttl: "BLACKBOX",
-        img: "/img/bb-cover.jpg",
-    },
-];
+import { getMusic } from "../libs/microcms";
+
+const response = await getMusic({
+    fields: ["id", "title", "artist", "link", "image"],
+});
 ---
 
 <section id="music">
@@ -41,18 +14,18 @@ const music = [
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 {
-                    music.map((item) => (
+                    response.contents.map((item: any) => (
                         <div class="swiper-slide">
                             <div class="box__wrapper">
                                 <div class="box__upper">
                                     <div class="img">
-                                        <img src={item.img} alt="" />
+                                        <img src={item.image.url} alt="" />
                                     </div>
                                     <div class="txt">
-                                        <h3 set:text={item.ttl} />
-                                        <p>EXPCTR</p>
+                                        <h3 set:text={item.title} />
+                                        <p set:text={item.artist} />
                                         <a
-                                            href={item.url}
+                                            href={item.link}
                                             class="btn"
                                             target="_blank"
                                         >
