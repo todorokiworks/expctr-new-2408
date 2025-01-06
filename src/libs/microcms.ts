@@ -1,8 +1,8 @@
 import { createClient, type MicroCMSQueries } from "microcms-js-sdk";
 
 const client = createClient({
-    serviceDomain: import.meta.env.PUBLIC_MICROCMS_SERVICE_DOMEIN,
-    apiKey: import.meta.env.PUBLIC_MICROCMS_API_KEY,
+    serviceDomain: import.meta.env.SERVICE_DOMEIN,
+    apiKey: import.meta.env.API_KEY,
 });
 
 export const getMusic = async (queries: MicroCMSQueries) => {
