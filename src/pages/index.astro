@@ -17,15 +17,20 @@ import PageLink from "../components/PageLink.astro";
 	</div>
 	<!-- <Main client:only="react" />-->
 	<Mv />
-	<PageLink />
-	<LatestRelease />
-	<MusicVideo />
-	<Music />
-	<Live />
-	<Merch />
-	<Contact />
+	<div class="content">
+		<PageLink />
+		<LatestRelease />
+		<MusicVideo />
+		<Music />
+		<Live />
+		<Merch />
+		<Contact />
+	</div>
 </Layout>
 <style lang="scss">
+	.content {
+		position: relative;
+	}
 	.video {
 		width: 90%;
 		margin: 0 auto;
