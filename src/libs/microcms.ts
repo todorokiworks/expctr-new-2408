@@ -1,8 +1,17 @@
 import { createClient, type MicroCMSQueries } from "microcms-js-sdk";
 
+const serviceDomain = import.meta.env.SERVICE_DOMEIN;
+const apiKey = import.meta.env.API_KEY;
+
+if (!serviceDomain || !apiKey) {
+    throw new Error(
+        `Missing required environment variables: SERVICE_DOMEIN=${!!serviceDomain}, API_KEY=${!!apiKey}`
+    );
+}
+
 const client = createClient({
-    serviceDomain: import.meta.env.SERVICE_DOMEIN,
-    apiKey: import.meta.env.API_KEY,
+    serviceDomain,
+    apiKey,
 });
 
 export const getMusic = async (queries: MicroCMSQueries) => {
