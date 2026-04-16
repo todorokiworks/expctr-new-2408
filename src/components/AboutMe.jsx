@@ -33,7 +33,7 @@ function Images() {
     })
     return (
         <group ref={group}>
-            <Image position={[isMobile ? -1.4 : -2, 0, -0.6]} scale={[isMobile ? 3.5 : 6, isMobile ? height / 1.3 : height, 1]} url="/img/headshot.png" link={'/'} />
+            <Image position={[isMobile ? -1.4 : -2, 0, -0.6]} scale={[isMobile ? 3.5 : 6, isMobile ? height / 1.3 : height, 1]} url="/img/img_headshot.png" link={'/'} />
 
         </group>
     )
