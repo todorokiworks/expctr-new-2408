@@ -1,15 +1,25 @@
 ---
 interface Props {
 	title: string;
+	description?: string;
+	jsonLdGraph?: Record<string, unknown>[];
 }
 
-const { title } = Astro.props;
-// Supports weights 100-900
+const {
+	title,
+	description = "Japan-based SSW/Producer, EXPCTR's website. New Song Secret Moment is OUT NOW.",
+	jsonLdGraph = [],
+} = Astro.props;
+
 import "@fontsource-variable/inter";
 import { ViewTransitions } from "astro:transitions";
 import { slide } from "astro:transitions";
 import { SEO } from "astro-seo";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { buildStructuredData } from "../libs/structuredData";
+
+const structuredData = buildStructuredData(jsonLdGraph);
+const ogImage = "https://expctr.com/img/headshot.png";
 ---
 
 <!doctype html>
@@ -32,40 +42,42 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<SEO
-			title="EXPCTR OFFICIAL WEBSITE"
-			description="Japan-based SSW/Producer, EXPCTR's website. New Song Secret Moment is OUT NOW."
+			title={title}
+			description={description}
 			charset="UTF-8"
 			openGraph={{
 				basic: {
-					title: "EXPCTR OFFICIAL WEBSITE",
+					title,
 					type: "website",
-					image: "https://expctr.com/img/headshot.png",
+					image: ogImage,
 				},
 			}}
 			twitter={{
 				creator: "@EXPCTR__",
 			}}
 			extend={{
-				// extending the default link tags
 				link: [{ rel: "icon", href: "/favicon.ico" }],
-				// extending the default meta tags
 				meta: [
 					{
 						name: "twitter:image",
-						content: "https://expctr.com/img/imb_headshot.png",
+						content: ogImage,
 					},
 					{
 						name: "twitter:title",
-						content: "EXPCTR OFFICIAL WEBSITE",
+						content: title,
 					},
 					{
 						name: "twitter:description",
-						content: "Japan-based SSW/Producer, EXPCTR's website. ",
+						content: description,
 					},
 					{ name: "viewport", content: "width=device-width" },
 					{ name: "twitter:card", content: "summary_large_image" },
 				],
 			}}
+		/>
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify(structuredData)}
 		/>
 		<link rel="stylesheet" href="/css/reset.css" />
 		<ViewTransitions />
