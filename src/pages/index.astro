@@ -9,18 +9,26 @@ import Merch from "../components/Merch.astro";
 import Live from "../components/Live.astro";
 import Contact from "../components/Contact.astro";
 import PageLink from "../components/PageLink.astro";
-import { getMusic } from "../libs/microcms";
-import { buildMusicAlbumGraph } from "../libs/structuredData";
+import { getMusic, getMusicVideo } from "../libs/microcms";
+import { buildMusicAlbumGraph, buildVideoObjectGraph } from "../libs/structuredData";
 
-const musicResponse = await getMusic({
-    fields: ["title", "artist", "link", "image"],
-});
+const [musicResponse, videoResponse] = await Promise.all([
+    getMusic({
+        fields: ["title", "artist", "link", "image"],
+    }),
+    getMusicVideo({
+        fields: ["link", "publishedAt"],
+    }),
+]);
+
 const musicJsonLdGraph = buildMusicAlbumGraph(musicResponse.contents);
+const videoJsonLdGraph = await buildVideoObjectGraph(videoResponse.contents);
+const jsonLdGraph = [...musicJsonLdGraph, ...videoJsonLdGraph];
 ---
 
 <Layout
     title="EXPCTR OFFICIAL WEBSITE"
-    jsonLdGraph={musicJsonLdGraph}
+    jsonLdGraph={jsonLdGraph}
 >
 	<div class="header">
 		<h1><a href="/"><img src="/img/logo.png" alt="" /></a></h1>

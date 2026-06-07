@@ -16,9 +16,14 @@ import { ViewTransitions } from "astro:transitions";
 import { slide } from "astro:transitions";
 import { SEO } from "astro-seo";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import { buildStructuredData } from "../libs/structuredData";
+import { buildPageStructuredData } from "../libs/structuredData";
 
-const structuredData = buildStructuredData(jsonLdGraph);
+const structuredData = buildPageStructuredData(
+	Astro.url.pathname,
+	title,
+	description,
+	jsonLdGraph,
+);
 const ogImage = "https://expctr.com/img/headshot.png";
 ---
 
