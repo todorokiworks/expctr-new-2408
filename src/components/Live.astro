@@ -17,7 +17,7 @@ const live = [
 ---
 
 <div class="live" id="live">
-    <h2>Live & Media:</h2>
+    <h2>Media:</h2>
     <div class="live__wrapper">
         <ul class="live-list">
             {
@@ -33,6 +33,23 @@ const live = [
             }
         </ul>
     </div>
+</div>
+
+<div class="live-widget">
+    <h2>Live:</h2>
+
+    <script charset="utf-8" src="https://widgetv3.bandsintown.com/main.min.js"
+    ></script>
+    <a
+        class="bit-widget-initializer"
+        data-artist-name="id_15592122"
+        data-app-id="ec334410d4e8cf2409331775cdedfaa4"
+        data-follow-section-position="top"
+        data-follow-section-alignment="center"
+        data-follow-section-cta-text="FOLLOW"
+        data-background-color="rgba(0,0,0,1)"
+        data-text-color="rgba(255,255,255,1)"
+        data-bit-logo-color="rgba(255,255,255,1)"></a>
 </div>
 
 <style lang="scss">
@@ -87,6 +104,15 @@ const live = [
                     }
                 }
             }
+        }
+    }
+    .live-widget {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 0 80px;
+        color: #fff;
+        h2 {
+            margin-bottom: 20px;
         }
     }
 </style>
