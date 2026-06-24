@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import AboutMe from "../components/AboutMe";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout title="about | expctr official website">
@@ -9,26 +10,9 @@ import AboutMe from "../components/AboutMe";
     </div>
     <AboutMe client:only="react" />
     <div class="contact" id="contact">
-        <h2>Contact:</h2>
+        <Contact />
         <div class="contact__wrapper">
             <a href="mailto:expctrtokyo@gmail.com">expctrtokyo@gmail.com</a>
-        </div>
-        <div class="sns__wrapper">
-            <ul>
-                <li>
-                    <a href="http://instagram.com/expctr" target="_blank"
-                        >Instagram</a
-                    >
-                </li>
-                <li>
-                    <a href="http://twitter.com/expctr__" target="_blank">X</a>
-                </li>
-                <li>
-                    <a href="https://www.youtube.com/@EXPCTR" target="_blank"
-                        >Youtube</a
-                    >
-                </li>
-            </ul>
         </div>
     </div>
 </Layout>
