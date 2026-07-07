@@ -12,8 +12,7 @@ const {
 } = Astro.props;
 
 import "@fontsource-variable/inter";
-import { ViewTransitions } from "astro:transitions";
-import { slide } from "astro:transitions";
+import { ClientRouter, slide } from "astro:transitions";
 import { SEO } from "astro-seo";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { buildPageStructuredData } from "../libs/structuredData";
@@ -85,7 +84,7 @@ const ogImage = "https://expctr.com/img/headshot.png";
 			set:html={JSON.stringify(structuredData)}
 		/>
 		<link rel="stylesheet" href="/css/reset.css" />
-		<ViewTransitions />
+		<ClientRouter />
 	</head>
 	<body transition:animate={slide({ duration: "1s" })}>
 		<slot />
