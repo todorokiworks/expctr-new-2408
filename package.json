@@ -10,28 +10,28 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/partytown": "^2.1.2",
-    "@astrojs/react": "^3.6.2",
+    "@astrojs/partytown": "^2.1.7",
+    "@astrojs/react": "^3.6.3",
     "@astrojs/sitemap": "^3.2.1",
-    "@fontsource-variable/inter": "^5.0.20",
+    "@fontsource-variable/inter": "^5.2.8",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
-    "@react-three/drei": "^9.111.3",
-    "@react-three/fiber": "^8.17.5",
-    "@types/react": "^18.3.4",
-    "@types/react-dom": "^18.3.0",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
     "@types/three": "^0.167.2",
-    "astro": "^4.14.5",
+    "astro": "^4.16.19",
     "astro-seo": "^0.8.4",
-    "microcms-js-sdk": "^3.1.2",
+    "microcms-js-sdk": "^3.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "swiper": "^11.2.0",
+    "swiper": "^12.2.0",
     "three": "^0.167.1"
   },
   "devDependencies": {
-    "sass-embedded": "^1.77.8"
+    "sass-embedded": "^1.100.0"
   }
 }
